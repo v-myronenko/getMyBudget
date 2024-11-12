@@ -1,7 +1,8 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Transaction {
     private double amount;
@@ -39,13 +40,9 @@ public class Transaction {
             deleteTransactions.setLong(1, chatId);
             deleteTransactions.executeUpdate();
 
-            // Можно также очистить категории, если они сохраняются отдельно
-            // PreparedStatement deleteCategories = conn.prepareStatement("DELETE FROM categories WHERE user_id = ?");
-            // deleteCategories.setLong(1, chatId);
-            // deleteCategories.executeUpdate();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 }
